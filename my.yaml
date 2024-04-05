@@ -1,0 +1,32 @@
+name: Clojure
+
+file: ["%.clojure$"]
+
+comment: ""
+
+block-comment: ""
+
+patterns:
+    comment: [";;.d*"]
+    string: [ 'r#"', '"#', '\\' ]
+
+keywords:
+    def
+    defn
+    some
+    foo
+    bar
+    baz
+
+keywords2:
+    something
+    fooo
+    baar
+    baaz
+
+literal:
+    asdf
+    asdffas
+    dfasd
+    fas
+    df
