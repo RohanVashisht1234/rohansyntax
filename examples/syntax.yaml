@@ -1,0 +1,73 @@
+name: Clojure
+
+file: ["%.clojure$"]
+
+comment: "//.*"
+
+block-comment: []
+
+patterns:
+  - pattern: [";;.*"]
+    type: ["comment"]
+
+  - pattern: [";.*"]
+    type: ["comment"]
+
+  - pattern: ['#"', '"', '\\']
+    type: ["string"]
+
+  - pattern: ["()Retention%s+()[%a_][%w_/]*()"]
+    type: ["keyword", "keyword2", "literal"]
+
+  - pattern: ["():[%a_][%w_/%-]*"]
+    type: ["keyword2", "keyword2", "literal", "literal"]
+
+  - pattern: ["()[%a_][%w_]*()%.()[%a_][%w_/%-]*()"]
+    type: ["keywords", "literal", "operator", "keyword2"]
+    
+  - pattern: ["%(()require()%s+()[%a_][%w_]*()"]
+    type: ["normal", "keyword", "literal", "symbol"]
+
+  - pattern: ["%(()[%a_][%w_/]*()"]
+    type: ["normal", "literal"]
+
+  - pattern: ["-?0x%x+"]
+    type: ["number"]
+
+  - pattern: ["-?%d+[%d%.eE]*f?"]
+    type: ["number"]
+
+  - pattern: ["-?%.?%d+f?"]
+    type: ["number"]
+
+  - pattern: ["[!%#%$%%&*+./%<=>%?@\\%^|%-~:]"]
+    type: ["operator"]
+
+  - pattern: ["[%a_'][%w_']*"]
+    type: ["normal"]
+
+keywords:
+    - def
+    - defn
+    - str
+    - fn
+    - println
+    - vector
+    - apply
+    - String
+    - ns
+    - try
+    - let
+    - get
+    - catch
+    - Retention
+    - Deprecated
+
+keywords2:
+    - require
+    - "true"
+    - "false"
+
+literal:
+    - nil
+    - int
